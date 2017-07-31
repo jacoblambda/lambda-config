@@ -3,8 +3,7 @@
 # init-env.sh: Creates a new environment for the gentoo build
 #
 # Usage: init-env.sh <stage3-tarball> <Root Partition> <EFI Partition>
-#                    <Boot Partition> <Swap Partition> <hostname>
-#                    <Network Device> <Host Device>
+#                    <Swap Partition> <hostname> <Network Device> <Host Device>
 #===============================================================================
 
 if [[ $EUID -ne 0 ]]; then
@@ -16,13 +15,19 @@ dir=$(dirname "$(readlink -f "$0")")
 tarball=$1
 root=$2
 efi=$3
-boot=$4
-swap=$5
-hostname=$6
-nic=$7
-host_nic=$8
+swap=$4
+hostname=$5
+nic=$6
+host_nic=$7
 
-$dir/init-fstab.sh "$root" "$boot" "$swap"
+mkfs.ext4 $root
+mkfs.vfat $efi
+mkswap $swap
+swapon $swap
+
+mount $root /mnt/gentoo
+
+$dir/init-fstab.sh "$root" "$swap"
 
 tar xvjpf $tarball --xattrs --numeric-owner
 cp $dir/chroot/config/make.conf /mnt/gentoo/etc/portage/make.conf
@@ -38,7 +43,7 @@ mount --rbind /dev /mnt/gentoo/dev
 mount --make-rslave /mnt/gentoo/dev
 
 cp $dir/chroot-setup /mnt/gentoo/chroot-setup
-chroot /mnt/gentoo /bin/bash $dir/chroot-setup/init-env-chroot.sh "$efi" "$boot" "$hostname" "$nic" "$host_nic"
+chroot /mnt/gentoo /bin/bash $dir/chroot-setup/init-env-chroot.sh "$efi" "$hostname" "$nic" "$host_nic"
 
 rm -rf /mnt/gentoo/chroot-setup
 rm $tarball

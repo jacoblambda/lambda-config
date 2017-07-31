@@ -2,8 +2,8 @@
 #===============================================================================
 # init-env-chroot.sh: Performs chroot based setup steps
 #
-# Usage: init-env-chroot.sh <EFI Partition> <Boot Partition> <hostname>
-#                           <Network Device> <Host Device>
+# Usage: init-env-chroot.sh <EFI Partition> <hostname> <Network Device>
+#                           <Host Device>
 #===============================================================================
 
 source /etc/profile
@@ -11,13 +11,9 @@ dir=$(dirname "$(readlink -f "$0")")
 packages=$(cat $dir/config/packagelist | grep -Ev "(^#.*|^$)" | tr '\n' ' ')
 
 efi=$1
-boot=$2
-hostname=$3
-nic=$4
-host_nic=$5
-
-mkdir /boot
-mount $boot /boot
+hostname=$2
+nic=$3
+host_nic=$4
 
 cp $dir/config/package.accept_keywords /etc/portage/package.accept_keywords
 emerge --sync --quiet
@@ -44,6 +40,5 @@ vim /boot/efi/refind_linux.conf
 
 bash $dir/init-admin.sh
 bash $dir/init-build.sh
-
 
 exit
