@@ -22,7 +22,7 @@ eselect profile list
 read -p "Select a profile: Choose a number: " number
 eselect profile set $number
 tmpcflags=$(grep 'CFLAGS=\".*\"' $dir/config/make.conf | sed 's/march=skylake/march=native/')
-CFLAGS="$tmpcflags" emerge -e --ask --update --deep --newuse sys-devel/gcc sys-libs/glibc
+$tmpcflags emerge -e --ask --update --deep --newuse sys-devel/gcc sys-libs/glibc
 emerge -e --ask --update --deep --newuse @world $packages
 
 
