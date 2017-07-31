@@ -14,4 +14,5 @@ make oldconfig && make menuconfig
 make -j5 && make modules_install
 make install
 
-#TODO: Attach Modules to the system
+modules=$(find "/lib/modules/$(uname -r)/" -type f -iname '*.o' -or -iname '*.ko' | tr '\n' ' ')
+echo "modules=$modules" > /etc/conf.d/modules
