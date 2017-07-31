@@ -19,9 +19,11 @@ cp $dir/config/package.accept_keywords /etc/portage/package.accept_keywords
 emerge --sync --quiet
 
 eselect profile list
-read -p "Select a profile: Choose a number" number
+read -p "Select a profile: Choose a number: " number
 eselect profile set $number
-emerge --update --deep --newuse @world $packages
+emerge --ask --update --deep --newuse sys-devel/gcc sys-libs/glibc
+emerge --ask --update --deep --newuse @world $packages
+
 
 bash $dir/init-locale.sh
 env-update && source /etc/profile

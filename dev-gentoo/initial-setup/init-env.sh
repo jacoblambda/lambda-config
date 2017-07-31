@@ -42,8 +42,8 @@ mount --make-rslave /mnt/gentoo/sys
 mount --rbind /dev /mnt/gentoo/dev
 mount --make-rslave /mnt/gentoo/dev
 
-cp $dir/chroot /mnt/gentoo/chroot
-chroot /mnt/gentoo /bin/bash $dir/chroot/init-env-chroot.sh "$efi" "$hostname" "$nic" "$host_nic"
+cp -a $dir/chroot /mnt/gentoo/chroot
+chroot /mnt/gentoo /bin/bash /chroot/init-env-chroot.sh "$efi" "$hostname" "$nic" "$host_nic"
 
 rm -rf /mnt/gentoo/chroot
 rm $tarball
