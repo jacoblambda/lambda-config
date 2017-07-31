@@ -1,0 +1,4 @@
+sys-libs/glibc ~amd64
+sys-devel/gcc ~amd64
+dev-util/bazel ~amd64
+dev-util/jenkins-bin ~amd64

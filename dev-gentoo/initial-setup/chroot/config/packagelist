@@ -1,0 +1,30 @@
+#Kernel Utilites
+sys-kernel/gentoo-sources
+sys-apps/pciutils
+
+#General Utilities
+app-admin/sudo
+app-editors/vim
+app-arch/p7zip
+
+#Network Utilites
+net-misc/dhcpcd
+
+#Administrative Tools
+sys-apps/mlocate
+sys-process/cronie
+
+#Bootloaders and boot related tools
+sys-boot/efibootmgr
+sys-boot/refind
+
+#Servers and related tools
+www-servers/lighttpd
+net-misc/openssh
+net-ftp/vsftpd
+
+#Build System Packages
+dev-util/valgrind
+dev-util/jenkins-bin
+dev-util/bazel
+dev-vcs/git
