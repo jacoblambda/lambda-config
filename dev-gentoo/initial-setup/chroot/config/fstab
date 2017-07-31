@@ -12,6 +12,3 @@
 #
 
 # <fs>                                          <mountpoint>	<type>  <opts>  <dump>  <pass>
-PARTUUID=58059f0b-b347-4839-82b5-a2e53ad19ed9   /               ext4    noatime 0       1
-PARTUUID=4ae25e5a-4194-40aa-8ce2-c96e47675b0a   /boot/efi       vfat    noatime 0       2
-PARTUUID=c2ced55c-5b52-4716-aec5-fc8c28aadec7   none            swap    sw      0       0

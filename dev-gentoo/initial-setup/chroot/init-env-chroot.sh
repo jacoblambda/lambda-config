@@ -18,8 +18,6 @@ host_nic=$5
 
 mkdir /boot
 mount $boot /boot
-mkdir /boot/efi
-mount $efi /boot/efi
 
 cp $dir/config/package.accept_keywords /etc/portage/package.accept_keywords
 emerge --sync --quiet
@@ -39,7 +37,9 @@ bash $dir/init-kernel.sh
 bash $dir/init-net.sh $hostname $nic $host_nic
 bash $dir/init-users.sh
 
-refind-install
+refind-install --usedefault $efi
+mkdir /boot/efi
+mount $efi /boot/efi
 vim /boot/efi/refind_linux.conf
 
 bash $dir/init-admin.sh

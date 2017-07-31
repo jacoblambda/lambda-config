@@ -2,18 +2,27 @@
 #===============================================================================
 # init-env.sh: Creates a new environment for the gentoo build
 #
-# Usage: init-env.sh <stage3-tarball> <EFI Partition> <Boot Partition>
-#                    <hostname> <Network Device> <Host Device>
+# Usage: init-env.sh <stage3-tarball> <Root Partition> <EFI Partition>
+#                    <Boot Partition> <Swap Partition> <hostname>
+#                    <Network Device> <Host Device>
 #===============================================================================
+
+if [[ $EUID -ne 0 ]]; then
+   echo "This script must be run as root"
+   exit 1
+fi
 
 dir=$(dirname "$(readlink -f "$0")")
 tarball=$1
-efi=$2
-boot=$3
-hostname=$4
-nic=$5
-host_nic=$6
+root=$2
+efi=$3
+boot=$4
+swap=$5
+hostname=$6
+nic=$7
+host_nic=$8
 
+$dir/init-fstab.sh "$root" "$boot" "$swap"
 
 tar xvjpf $tarball --xattrs --numeric-owner
 cp $dir/chroot/config/make.conf /mnt/gentoo/etc/portage/make.conf
