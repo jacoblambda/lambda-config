@@ -29,7 +29,7 @@ mount $root /mnt/gentoo
 
 $dir/init-fstab.sh "$root" "$swap"
 
-tar xvjpf $tarball --xattrs --numeric-owner
+tar xvjpf $tarball --xattrs --numeric-owner --directory /mnt/gentoo
 cp $dir/chroot/config/make.conf /mnt/gentoo/etc/portage/make.conf
 
 mkdir /mnt/gentoo/etc/portage/repos.conf
