@@ -21,11 +21,16 @@ emerge --sync --quiet
 eselect profile list
 read -p "Select a profile: Choose a number: " number
 eselect profile set $number
-sed -i 's/march=skylake/march=native/' $dir/config/make.conf
-emerge --ask --update --deep --newuse sys-devel/gcc sys-libs/glibc
-sed -i 's/march=native/march=skylake/' $dir/config/make.conf
-emerge -e --ask --update --deep --newuse @world $packages
+sed -i 's/march=skylake/march=native/' /etc/portage/make.conf
 
+emerge --ask --emptytree --verbose sys-devel/gcc sys-libs/glibc
+gcc-config --list-profiles
+read -p "Select a profile: Choose a number: " number2
+gcc-config $number2
+
+sed -i 's/march=native/march=skylake/' /etc/portage/make.conf
+emerge --ask --emptytree --verbose --newuse @world $packages
+emerge --ask --depclean
 
 bash $dir/init-locale.sh
 env-update && source /etc/profile
