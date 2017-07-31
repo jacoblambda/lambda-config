@@ -21,8 +21,8 @@ emerge --sync --quiet
 eselect profile list
 read -p "Select a profile: Choose a number: " number
 eselect profile set $number
-emerge --ask --update --deep --newuse sys-devel/gcc sys-libs/glibc
-emerge --ask --update --deep --newuse @world $packages
+emerge -e --ask --update --deep --newuse sys-devel/gcc sys-libs/glibc
+emerge -e --ask --update --deep --newuse @world $packages
 
 
 bash $dir/init-locale.sh

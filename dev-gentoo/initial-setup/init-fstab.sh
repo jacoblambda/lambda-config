@@ -21,7 +21,7 @@ echo "# /etc/fstab: static file system information.
 #
 # See the manpage fstab(5) for more information.
 #
-# <fs>                                          <mountpoint>	<type>  <opts>  <dump>  <pass>
-PARTUUID=$root /     ext4 noatime 0 1
-PARTUUID=$swap none  swap sw      0 0
+# <fs>                                          <mountpoint>    <type>  <opts>  <dump>  <pass>
+PARTUUID=$root                                  /               ext4    noatime 0       1
+PARTUUID=$swap                                  none            swap    sw      0       0
 " > $dir/chroot/config/fstab
