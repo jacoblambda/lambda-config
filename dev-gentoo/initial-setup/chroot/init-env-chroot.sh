@@ -46,7 +46,7 @@ bash $dir/init-users.sh
 refind-install --usedefault $efi
 mkdir /boot/efi
 mount $efi /boot/efi
-vim /boot/efi/refind_linux.conf
+vim /boot/efi/EFI/BOOT/refind_linux.conf
 
 bash $dir/init-admin.sh
 bash $dir/init-build.sh
