@@ -10,9 +10,13 @@ dir=$(dirname "$(readlink -f "$0")")
 
 
 cp $dir/config/kernel.conf /usr/src/linux/.config
+cd /usr/src/linux || exit
 make oldconfig && make menuconfig
 make -j5 && make modules_install
 make install
+cd $dir || exit
 
-modules=$(find "/lib/modules/$(uname -r)/" -type f -iname '*.o' -or -iname '*.ko' | tr '\n' ' ')
-echo "modules=$modules" > /etc/conf.d/modules
+src_loc='/usr/src/linux'
+kernel_ver=$(readlink -f "$src_loc" | sed 's|/usr/src/linux-||')
+modules=$(cat /usr/src/linux/modules.order | sed 's|\(.*\)/||' | tr '\n' ' ')
+echo "modules_$kernel_ver=$modules" >> /etc/conf.d/modules
