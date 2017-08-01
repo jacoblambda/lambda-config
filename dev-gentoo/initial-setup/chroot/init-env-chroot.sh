@@ -27,6 +27,7 @@ emerge --ask --emptytree --verbose sys-devel/gcc sys-libs/glibc
 gcc-config --list-profiles
 read -p "Select a profile: Choose a number: " number2
 gcc-config $number2
+env-update && source /etc/profile
 
 sed -i 's/march=native/march=skylake/' /etc/portage/make.conf
 emerge --ask --emptytree --verbose --newuse @world $packages
