@@ -17,6 +17,6 @@ make install
 cd $dir || exit
 
 src_loc='/usr/src/linux'
-kernel_ver=$(readlink -f "$src_loc" | sed 's|/usr/src/linux-||')
+kernel_ver=$(readlink -f "$src_loc" | sed -e 's|/usr/src/linux-||' | tr '.' '_' | tr '-' '_')
 modules=$(cat /usr/src/linux/modules.order | sed -e 's|\(.*\)/||' -e 's|\.ko||' | tr '\n' ' ')
-echo "modules_$kernel_ver=$modules" >> /etc/conf.d/modules
+echo "modules_$kernel_ver=\"$modules\"" >> /etc/conf.d/modules

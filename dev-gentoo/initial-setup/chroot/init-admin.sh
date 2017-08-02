@@ -15,6 +15,8 @@ rc-update add cronie default
 #Configure /etc/syslog.conf
 #Configure logrotate
 #Add zpaq compression to logrotate
+sed -i -e 's|#rc_logger="NO"|rc_logger="YES"|' /etc/rc.conf
+
 
 #Configure SSH Server
 /usr/bin/ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key -N ""
@@ -27,5 +29,7 @@ rc-update add vsftpd default
 chown ftp /home/ftp
 
 #Configure HTTP Server
-cp $dir/config/lighttpd.conf /etc/lighttpd/lighttpd.conf
-rc-update add lighttpd default
+cp $dir/config/nginx.conf /etc/nginx/nginx.conf
+rc-update add nginx default
+
+#Configure Certbot & LetsEncrypt

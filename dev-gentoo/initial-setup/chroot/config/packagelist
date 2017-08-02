@@ -11,6 +11,7 @@ app-arch/p7zip
 net-misc/dhcpcd
 
 #Administrative Tools
+app-portage/gentoolkit
 sys-apps/mlocate
 sys-process/cronie
 
@@ -19,7 +20,7 @@ sys-boot/efibootmgr
 sys-boot/refind
 
 #Servers and related tools
-www-servers/lighttpd
+www-servers/nginx
 net-misc/openssh
 net-ftp/vsftpd
 
