@@ -1,6 +1,7 @@
 #Kernel Utilites
 sys-kernel/gentoo-sources
 sys-apps/pciutils
+sys-power/acpid
 
 #General Utilities
 app-admin/sudo

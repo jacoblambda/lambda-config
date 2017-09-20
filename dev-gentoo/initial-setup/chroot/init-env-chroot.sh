@@ -40,6 +40,8 @@ export EDITOR=/usr/bin/vim
 cp $dir/config/fstab /etc/fstab
 
 bash $dir/init-kernel.sh
+rc-update add acpid default
+
 bash $dir/init-net.sh $hostname $nic $host_nic
 bash $dir/init-users.sh
 
