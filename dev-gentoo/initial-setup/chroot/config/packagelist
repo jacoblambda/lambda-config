@@ -15,6 +15,7 @@ net-misc/dhcpcd
 app-portage/gentoolkit
 sys-apps/mlocate
 sys-process/cronie
+net-analyzer/netcat
 
 #Bootloaders and boot related tools
 sys-boot/efibootmgr

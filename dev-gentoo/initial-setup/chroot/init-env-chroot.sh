@@ -52,7 +52,7 @@ refind_conf='/boot/efi/EFI/BOOT/refind_linux.conf'
 sed -i -e 's|timeout.*|timeout -1|' $refind_conf
 vim $refind_conf
 
-bash $dir/init-admin.sh
+bash $dir/init-admin.sh $host_nic
 bash $dir/init-build.sh
 
 exit
