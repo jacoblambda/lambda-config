@@ -13,3 +13,6 @@ echo 'Input Password for root'
 useradd -m -G wheel -s /bin/bash jacoblambda
 echo 'Input Password for jacoblambda'
 passwd jacoblambda
+
+echo 'Input Samba Password for jacoblambda(Same as user password)'
+smbpasswd -a jacoblambda
