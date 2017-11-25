@@ -11,7 +11,7 @@ state="$(dev-state)"
 dev-start
 padding_width=2
 if [ $state -eq 0 ]; then
-    for (( i = 30; i >= 0; i-- )); do
+    for (( i = 45; i >= 0; i-- )); do
         printf "%0*d" $padding_width $i
         sleep 1s
         echo -ne "\r\r"
