@@ -24,7 +24,7 @@ sys-boot/refind
 #Servers and related tools
 www-servers/nginx
 net-misc/openssh
-net-ftp/vsftpd
+#net-ftp/vsftpd
 net-fs/samba
 
 #Build System Packages

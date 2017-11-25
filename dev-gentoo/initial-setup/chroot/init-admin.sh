@@ -25,9 +25,9 @@ sed -i -e 's|#rc_logger="NO"|rc_logger="YES"|' /etc/rc.conf
 rc-update add sshd default
 
 #Configure SFTP Server
-cp $dir/config/vsftpd.conf /etc/vsftpd/vsftpd.conf
-rc-update add vsftpd default
-chown ftp /home/ftp
+#cp $dir/config/vsftpd.conf /etc/vsftpd/vsftpd.conf
+#rc-update add vsftpd default
+#chown ftp /home/ftp
 
 #Configure Samba Share
 sed -i -e "s|enp0s8|$host_nic|" $dir/config/smb.conf
