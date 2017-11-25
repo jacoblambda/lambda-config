@@ -25,6 +25,7 @@ sys-boot/refind
 www-servers/nginx
 net-misc/openssh
 net-ftp/vsftpd
+net-fs/samba
 
 #Build System Packages
 dev-util/valgrind
