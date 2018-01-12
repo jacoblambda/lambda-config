@@ -29,4 +29,6 @@ read GITEMAIL
 
 sudo -u $CURUSER git config --global user.name "$GITNAME"
 sudo -u $CURUSER git config --global user.email $GITEMAIL
+sudo -u $CURUSER git config --global alias.all '!f() { ls -R -d */.git | sed 's,\/.git,,' | xargs -I{} bash -c "echo \"Current Repository: {}\" && git -C {} $1;"; }; f'
 sudo -u $CURUSER git config --global core.editor vim
+sudo -u $CURUSER git config --global credential.helper cache

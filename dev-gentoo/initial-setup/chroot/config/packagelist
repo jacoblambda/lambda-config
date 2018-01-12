@@ -7,6 +7,8 @@ sys-power/acpid
 app-admin/sudo
 app-editors/vim
 app-arch/p7zip
+app-text/tree
+app-misc/tmux
 
 #Network Utilites
 net-misc/dhcpcd
