@@ -12,6 +12,7 @@ app-misc/tmux
 
 #Network Utilites
 net-misc/dhcpcd
+net-misc/ntp
 
 #Administrative Tools
 app-portage/gentoolkit

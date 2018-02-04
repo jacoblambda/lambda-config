@@ -12,6 +12,10 @@ Plug 'skielbasa/vim-material-monokai'
 Plug 'vim-airline/vim-airline'
 call plug#end()
 
+silent !mkdir $HOME/.vim/swapfiles// > /dev/null 2>&1
+set directory=$HOME/.vim/swapfiles//
+silent !mkdir $HOME/.vim/backups// > /dev/null 2>&1
+set backupdir=$HOME/.vim/backups//
 
 set path=.,,**
 set number
@@ -21,4 +25,13 @@ set termguicolors
 colorscheme material-monokai
 let g:materialmonokai_italic=1
 let g:airline_theme='materialmonokai'
+
+set tabstop=4
+set shiftwidth=4
+set expandtab
+
+set splitbelow
+set splitright
+
+autocmd BufEnter *.tpp :setlocal filetype=cpp
 
