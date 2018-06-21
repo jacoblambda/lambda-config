@@ -32,6 +32,6 @@ net-fs/samba
 
 #Build System Packages
 dev-util/valgrind
-dev-util/jenkins-bin
+#dev-util/jenkins-bin
 dev-util/bazel
 dev-vcs/git

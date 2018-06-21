@@ -10,6 +10,7 @@ endif
 call plug#begin('~/.vim/plugins')
 Plug 'skielbasa/vim-material-monokai'
 Plug 'vim-airline/vim-airline'
+Plug 'lervag/vimtex'
 call plug#end()
 
 silent !mkdir $HOME/.vim/swapfiles// > /dev/null 2>&1

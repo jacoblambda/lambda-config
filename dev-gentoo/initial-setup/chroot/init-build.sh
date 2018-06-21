@@ -5,8 +5,8 @@
 # Usage: init-build.sh
 #===============================================================================
 
-jenkins_args='--httpListenAddress=web.local --prefix=/jenkins'
-
-escaped_args=$(echo $jenkins_args | sed 's/[]\/$*.^|[]/\\&/g')
-sed -i "s|JENKINS_ARGS=\"\"|JENKINS_ARGS=\"$escaped_args\"|" /etc/conf.d/jenkins
-rc-update add jenkins default
+#jenkins_args='--httpListenAddress=web.local --prefix=/jenkins'
+#
+#escaped_args=$(echo $jenkins_args | sed 's/[]\/$*.^|[]/\\&/g')
+#sed -i "s|JENKINS_ARGS=\"\"|JENKINS_ARGS=\"$escaped_args\"|" /etc/conf.d/jenkins
+#rc-update add jenkins default
