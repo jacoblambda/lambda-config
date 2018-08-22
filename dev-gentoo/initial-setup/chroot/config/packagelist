@@ -25,7 +25,7 @@ sys-boot/efibootmgr
 sys-boot/refind
 
 #Servers and related tools
-www-servers/nginx
+#www-servers/nginx
 net-misc/openssh
 #net-ftp/vsftpd
 net-fs/samba

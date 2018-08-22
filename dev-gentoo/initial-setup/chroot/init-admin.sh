@@ -35,7 +35,7 @@ cp $dir/config/smb.conf /etc/samba/smb.conf
 rc-update add samba default
 
 #Configure HTTP Server
-cp $dir/config/nginx.conf /etc/nginx/nginx.conf
-rc-update add nginx default
+#cp $dir/config/nginx.conf /etc/nginx/nginx.conf
+#rc-update add nginx default
 
 #Configure Certbot & LetsEncrypt
